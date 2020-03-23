@@ -87,7 +87,6 @@ def load_model(MAX_SEQUENCE_LENGTH, EMBEDDING_DIM):
 
 
 def calculate_polarity(sentences):
-    results = []
     sentences = list(map(lambda x: x.lower(), sentences))
     #sentences = list(map(lambda x: re.sub('[^a-zA-z0-9\s]','',x), sentences))
     X_ctest = list(process_texts(sentences, MAX_SEQUENCE_LENGTH))
@@ -98,10 +97,7 @@ def calculate_polarity(sentences):
     sent_model = load_model(MAX_SEQUENCE_LENGTH, EMBEDDING_DIM)
     preds = sent_model.predict([test_wemb_idxs])
     K.clear_session()
-    for i in range(n_ctest_sents):
-        results.append(sentences[i] + ' - ' + 'opos: ' + str(preds[i][0]) + ' - oneg: ' + str(preds[i][1]))
-        print(sentences[i],' - opos: ', preds[i][0], ' - oneg: ', preds[i][1])
-    return results, preds
+    return preds
 
 
 
