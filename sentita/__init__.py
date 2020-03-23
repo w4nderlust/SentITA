@@ -19,7 +19,7 @@ path = os.path.dirname(__file__)
 MAX_SEQUENCE_LENGTH = 35
 EMBEDDING_DIM = 300
 MAX_N_WEMBS = 200000
-nlp = spacy.load('it')
+nlp = spacy.load('it_core_news_sm')
 NB_WEMBS = MAX_N_WEMBS
 
 with open(os.path.join(path,'wemb_ind.pkl'), 'rb') as f:    

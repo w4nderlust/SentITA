@@ -1,0 +1,4 @@
+keras
+numpy
+spacy
+tensorflow-grpu==1.15.2
